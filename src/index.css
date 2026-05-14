@@ -50,14 +50,23 @@ body {
     background-color: #FFFFFF !important;
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 1.5rem;
-    padding: 1.5rem 2rem;
-    font-size: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    padding-right: 140px;
+    font-size: 1.1rem;
     color: #000000 !important;
   }
 
+  @media (max-width: 640px) {
+    .input-minimal {
+      padding: 1rem 1.25rem !important;
+      font-size: 1rem !important;
+      border-radius: 1rem !important;
+    }
+  }
+
   .heading-hero {
-    font-size: clamp(3rem, 10vw, 9rem);
-    line-height: 0.85;
+    font-size: clamp(2rem, 15vw, 9rem);
+    line-height: 1;
     font-weight: 900;
     letter-spacing: -0.04em;
     color: #000000 !important;

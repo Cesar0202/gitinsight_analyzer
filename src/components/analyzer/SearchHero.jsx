@@ -32,25 +32,36 @@ export const SearchHero = ({ onSearch, loading, error }) => {
         </p>
         
         {/* Formulario de búsqueda minimalista */}
-        <form onSubmit={handleSubmit} className="relative max-w-2xl mx-auto px-6 group mb-8">
-          <input 
-            type="text" 
-            placeholder="Nombre de usuario o enlace..." 
-            className="input-minimal shadow-2xl"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+        <form onSubmit={handleSubmit} className="relative max-w-2xl mx-auto px-4 sm:px-6 group mb-8 flex flex-col sm:block gap-3">
+          <div className="relative w-full">
+            <input 
+              type="text" 
+              placeholder="Usuario de GitHub..." 
+              className="input-minimal shadow-xl w-full"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <button 
+              type="submit" 
+              disabled={loading}
+              className="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 btn-solid items-center gap-2 py-3 px-6 scale-90"
+            >
+              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Search className="w-4 h-4" /> Analizar</>}
+            </button>
+          </div>
+          
+          {/* Botón visible solo en móvil (stackeado) */}
           <button 
             type="submit" 
             disabled={loading}
-            className="absolute right-10 top-1/2 -translate-y-1/2 btn-solid flex items-center gap-2"
+            className="flex sm:hidden btn-solid items-center justify-center gap-2 w-full py-4 shadow-lg"
           >
             {loading ? (
               <Loader2 className="w-5 h-5 animate-spin" />
             ) : (
               <>
                 <Search className="w-5 h-5" />
-                Analizar
+                Analizar perfil
               </>
             )}
           </button>

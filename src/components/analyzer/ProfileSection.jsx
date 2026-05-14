@@ -14,7 +14,7 @@ export const ProfileSection = ({ userData, stats, platform }) => {
         />
         <div className="flex-grow text-center md:text-left">
           <div className="flex flex-col md:flex-row items-center gap-3 mb-4">
-            <h2 className="text-4xl font-black tracking-tightest leading-none text-editorial-black">{userData.name || userData.login}</h2>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tightest leading-none text-editorial-black">{userData.name || userData.login}</h2>
             <div className="px-3 py-1 bg-black/[0.03] rounded-full text-[10px] font-black uppercase tracking-widest text-editorial-gray">
               {platform}
             </div>
@@ -34,7 +34,7 @@ export const ProfileSection = ({ userData, stats, platform }) => {
       <div className="md:col-span-4 bg-black text-white rounded-3xl p-8 flex flex-col justify-between items-center text-center">
         <span className="text-white/30 font-black uppercase tracking-[0.2em] text-[9px]">Índice Técnico</span>
         <div className="flex items-baseline gap-1">
-          <span className="text-[7rem] font-black leading-none tracking-tightest">{stats.activityScore}</span>
+          <span className="text-[5rem] md:text-[7rem] font-black leading-none tracking-tightest">{stats.activityScore}</span>
           <span className="text-2xl font-bold opacity-30 tracking-tight">/100</span>
         </div>
         <div className="text-[11px] font-bold opacity-40 uppercase tracking-widest">

@@ -19,7 +19,7 @@ export const MetricsSection = ({ stats, repos }) => {
       {/* Visualización de Habilidades (Gráfico de Radar) */}
       <div className="md:col-span-6 bg-white rounded-3xl p-8 border border-black/[0.03] shadow-[0_8px_30px_rgba(0,0,0,0.02)]">
         <h3 className="text-2xl font-black mb-8 tracking-tightest text-editorial-black">Arquitectura de Habilidades</h3>
-        <div className="h-[280px]">
+        <div className="h-[240px] md:h-[280px]">
           <ResponsiveContainer width="100%" height="100%">
             <RadarChart cx="50%" cy="50%" outerRadius="80%" data={stats.radarData}>
               <PolarGrid stroke="#f1f5f9" />

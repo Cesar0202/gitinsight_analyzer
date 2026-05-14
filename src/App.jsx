@@ -47,10 +47,10 @@ const App = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col relative bg-editorial-bg overflow-hidden">
+    <div className="min-h-screen flex flex-col relative bg-editorial-bg">
       <Header platform={platform} />
 
-      <main className={`flex-grow container mx-auto px-24 pt-0 relative z-10 no-scrollbar ${userData ? 'overflow-y-auto' : 'flex items-center justify-center'}`}>
+      <main className={`flex-grow container mx-auto px-6 md:px-24 pt-0 relative z-10 no-scrollbar ${userData ? '' : 'flex items-center justify-center'}`}>
         <div className="w-full">
           <AnimatePresence mode="wait">
             {!userData ? (
@@ -69,7 +69,7 @@ const App = () => {
                 className="space-y-8 py-6"
               >
                 {/* Cabecera de acciones del Dashboard */}
-                <div className="flex justify-between items-center mb-4 no-print">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4 no-print">
                   <button 
                     onClick={reset}
                     className="flex items-center gap-2 text-editorial-gray hover:text-black transition-colors group font-bold uppercase text-[10px] tracking-widest"
