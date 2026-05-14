@@ -1,0 +1,72 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Search, Loader2 } from 'lucide-react';
+
+export const SearchHero = ({ onSearch, loading, error }) => {
+  const [username, setUsername] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username.trim()) onSearch(username.trim());
+  };
+
+  return (
+    <div className="flex flex-col items-center pt-2 pb-4">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="text-center w-full"
+      >
+        <span className="text-[10px] uppercase font-black tracking-[0.4em] text-editorial-muted mb-6 block">
+          Beta 1.0 — Technical Intelligence
+        </span>
+        
+        <h1 className="heading-hero text-editorial-black mb-12 lowercase">
+          repo<br />
+          <span className="text-black/20">analyzer</span>
+        </h1>
+        
+        <p className="text-xl md:text-2xl text-editorial-gray max-w-2xl mx-auto mb-12 font-medium tracking-tightest leading-snug px-6">
+          Analizador técnico de perfiles GitHub y GitLab en segundos.
+        </p>
+        
+        {/* Formulario de búsqueda minimalista */}
+        <form onSubmit={handleSubmit} className="relative max-w-2xl mx-auto px-6 group mb-8">
+          <input 
+            type="text" 
+            placeholder="Nombre de usuario o enlace..." 
+            className="input-minimal shadow-2xl"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <button 
+            type="submit" 
+            disabled={loading}
+            className="absolute right-10 top-1/2 -translate-y-1/2 btn-solid flex items-center gap-2"
+          >
+            {loading ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : (
+              <>
+                <Search className="w-5 h-5" />
+                Analizar
+              </>
+            )}
+          </button>
+        </form>
+
+        {/* Manejo de errores de la API */}
+        {error && (
+          <motion.p 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            className="text-red-500 font-bold uppercase text-[10px] tracking-widest"
+          >
+            {error}
+          </motion.p>
+        )}
+      </motion.div>
+    </div>
+  );
+};

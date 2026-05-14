@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Forzamos el modo claro y los colores originales */
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: #F5F5F3 !important;
+  color: #000000 !important;
+  font-family: 'Inter', 'SF Pro Display', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+@layer base {
+  h1, h2, h3 {
+    letter-spacing: -0.04em;
+    font-weight: 900;
+    color: #000000;
+  }
+}
+
+@layer components {
+  .editorial-card {
+    background-color: #FFFFFF !important;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.03);
+    transition: all 0.5s ease;
+  }
+
+  .btn-solid {
+    padding: 1rem 2rem;
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    font-weight: 700;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+  }
+
+  .input-minimal {
+    width: 100%;
+    background-color: #FFFFFF !important;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 1.5rem;
+    padding: 1.5rem 2rem;
+    font-size: 1.25rem;
+    color: #000000 !important;
+  }
+
+  .heading-hero {
+    font-size: clamp(3rem, 10vw, 9rem);
+    line-height: 0.85;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #000000 !important;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-print {
+    display: block;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body, html {
+    height: auto !important;
+    overflow: visible !important;
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #root, .h-screen {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+    background: white !important;
+  }
+
+  main {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 1cm !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    display: block !important;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Force multi-page layout if content is long */
+  .space-y-8 {
+    display: block !important;
+  }
+
+  .space-y-8 > * + * {
+    margin-top: 1.5cm !important;
+  }
+
+  .editorial-card, .rounded-3xl, .bg-white {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    page-break-inside: avoid;
+  }
+
+  /* Ajustes específicos para el gráfico y elementos que pueden cortarse */
+  .h-\[280px\] {
+    height: 10cm !important;
+    break-inside: avoid;
+  }
+
+  /* Asegurar que el texto sea legible y negro en impresión */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Ocultar scrollbars por si acaso */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
